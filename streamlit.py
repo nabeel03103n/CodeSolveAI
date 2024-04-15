@@ -1,15 +1,41 @@
+# import streamlit as st
+# import keyboard
+
+# st.markdown('''<h1 style='text-align:center;color:white;'>CodeSolveAI</h1>''',unsafe_allow_html=True)
+
+# def text(prompt):
+#     st.text(Fetch.FetchAndTrainStackOverFlow(prompt))
+
+# prompt = st.chat_input("Ask")
+# if prompt:
+#     st.write(text(prompt))
+
+# # if st.button("click"):
+#     # text()
+
+# # if keyboard.is_pressed('enter'):
+#     # text()
 import streamlit as st
-import keyboard
 from FetchAndTrain import Fetch
 
-st.markdown('''<h1 style='text-align:center;color:white;'>CodeSolveAI</h1>''',unsafe_allow_html=True)
+st.title("CodeSolveAI")
 
-def text():
-    st.text(Fetch.FetchAndTrainStackOverFlow(user_input))
+if "message" not in st.session_state:
+    st.session_state.messages = []
 
-user_input = st.text_input(label="Enter")
-if st.button("click"):
-    text()
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
 
-if keyboard.is_pressed('enter'):
-    text()
+if prompt := st.chat_input("Message CodeSolveAI"):
+    with st.chat_message("user"):
+        st.markdown(prompt)
+
+    st.session_state.messages.append({"role":"User","content":prompt})
+
+# response = type(prompt)
+response = Fetch.FetchAndTrainStackOverFlow(str(prompt))
+with st.chat_message("assistant"):
+    st.markdown(response)
+st.session_state.messages.append({"role":"User","content":response})
+
