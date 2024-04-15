@@ -1,20 +1,3 @@
-# import streamlit as st
-# import keyboard
-
-# st.markdown('''<h1 style='text-align:center;color:white;'>CodeSolveAI</h1>''',unsafe_allow_html=True)
-
-# def text(prompt):
-#     st.text(Fetch.FetchAndTrainStackOverFlow(prompt))
-
-# prompt = st.chat_input("Ask")
-# if prompt:
-#     st.write(text(prompt))
-
-# # if st.button("click"):
-#     # text()
-
-# # if keyboard.is_pressed('enter'):
-#     # text()
 import streamlit as st
 from FetchAndTrain import Fetch
 
