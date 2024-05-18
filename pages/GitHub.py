@@ -1,6 +1,5 @@
 import streamlit as st
-# from FetchAndTrain import Fetch
-from test2 import FetchGitHub
+from FetchAndTrain import Fetch
 import time
 #Python Docs
 st.set_page_config(
@@ -28,7 +27,8 @@ if prompt := st.chat_input("Message CodeSolveAI"):
 
 # response = type(prompt)
 # response = Fetch.FetchAndTrainStackOverFlow(str(prompt))
-response = FetchGitHub(str(prompt))
+st.download_button("Downlaod","test2.py")
+response = Fetch.FetchGithub(str(prompt))
 if response == None:
     response = "Welcome to Github: CodeSolveAI"
 with st.chat_message("assistant"):

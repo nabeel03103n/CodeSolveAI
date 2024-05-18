@@ -4,6 +4,7 @@ from googlesearch import search
 import os
 import wikipedia
 import time
+import git
 
 class Fetch():
 
@@ -38,7 +39,7 @@ class Fetch():
             except:
                 return False
 
-    
+
     def PythonOrg(query):
         query = query.lower()
         global title
@@ -56,7 +57,7 @@ class Fetch():
                         html_doc = f.read()
                     soup = BeautifulSoup(html_doc, 'html.parser')
                     title = f"{j}\n\n{soup.title.text}"
-                    answerscell = []
+                    answerscell = [title]
                     pre_tags = soup.find_all('pre')
                     for pre_tag in pre_tags:
                         answerscell.append(pre_tag.text)
@@ -77,6 +78,7 @@ class Fetch():
     def FetchWikipedia(query):
         query = query.lower().replace(" ","")
         results = wikipedia.summary(query)
+        
         return results
 
     # def FetchAndTrainGeeksForGeeks(query):

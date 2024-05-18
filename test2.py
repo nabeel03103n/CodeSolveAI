@@ -1,2 +1,3 @@
 from FetchAndTrain import Fetch
-Fetch.FetchWikipedia("Salman Khan")
+
+print(Fetch.FetchGithub("https://github.com/nabeel03103n/Requirements-Python.git"))
