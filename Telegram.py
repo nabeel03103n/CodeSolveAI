@@ -5,7 +5,7 @@ bot = telebot.TeleBot("6391937928:AAEqfMyR-xCRVzWeNvWJlxdt1qU_2D3vaSk")
 
 @bot.message_handler(commands=['start', 'help','hi','hello'])
 def send_welcome(message):
-	bot.reply_to(message, "Hello I am here to solve your programming problems")
+	bot.reply_to(message, "Select an App\n\n1.Wikipedia\n2.Python Docs\n3.CodeSolveAI\n4.Github")
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):

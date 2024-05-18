@@ -5,6 +5,7 @@ import os
 import wikipedia
 import time
 import git
+import pyttsx3
 
 class Fetch():
 
@@ -12,7 +13,9 @@ class Fetch():
     answer = ""
     r = ""
     def FetchAndTrainStackOverFlow(query):
-        query = query.lower()
+        try:
+            query = query.lower()
+        except:pass
         if "stackoverflow" in query:pass
         else:query = f"{query} stackoverflow"
         global title
@@ -39,6 +42,10 @@ class Fetch():
             except:
                 return False
 
+    def speaker(text):
+        engine = pyttsx3.init()
+        engine.save_to_file(text,"text_for_telegram.mp3")
+        engine.runAndWait()
 
     def PythonOrg(query):
         query = query.lower()
